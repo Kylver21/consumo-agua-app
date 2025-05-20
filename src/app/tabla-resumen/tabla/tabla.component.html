@@ -11,11 +11,11 @@
   </thead>
   <tbody>
     <tr *ngFor="let c of consumos; let i = index">
-      <td>{{ c.fecha }}</td>
-      <td>{{ c.hora }}</td>
-      <td>{{ c.cantidad | number:'1.2-2' }}</td>
-      <td>{{ meta | number:'1.2-2' }}</td>
-      <td [ngClass]="getEstadoClase(i)">
+      <td data-label="Fecha">{{ c.fecha }}</td>
+      <td data-label="Hora">{{ c.hora }}</td>
+      <td data-label="Consumo (L)">{{ c.cantidad | number:'1.2-2' }}</td>
+      <td data-label="Meta (L)">{{ meta | number:'1.2-2' }}</td>
+      <td data-label="Estado" [ngClass]="getEstadoClase(i)">
         {{ getEstado(i) }}
       </td>
     </tr>

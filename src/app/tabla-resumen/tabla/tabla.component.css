@@ -29,3 +29,29 @@ tr:hover {
   color: #dc3545;
   font-weight: bold;
 }
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    background: none !important;
+  }
+  td {
+    padding: 0.5em 0.8em;
+    text-align: left;
+    position: relative;
+    border: none;
+  }
+  td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.2em;
+  }
+}

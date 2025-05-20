@@ -1,6 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
 import { ConsumoAguaService } from '../../servicios/consumo-agua.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,11 @@ export class HomeComponent {
   metaGuardada = false;
   darkMode = false;
 
-  constructor(private consumoService: ConsumoAguaService, private renderer: Renderer2) {
+  constructor(
+    private consumoService: ConsumoAguaService,
+    private renderer: Renderer2,
+    private router: Router
+  ) {
     const metaActual = this.consumoService.getMetaDiaria();
     if (metaActual > 0) {
       this.meta = metaActual;
@@ -33,7 +37,15 @@ export class HomeComponent {
     }
     this.consumoService.setMetaDiaria(this.meta);
     this.consumoService.setTipoMeta(this.tipoMeta);
-    this.metaGuardada = true;
+
+    // Solo redirige la primera vez
+    if (!localStorage.getItem('metaGuardada')) {
+      localStorage.setItem('metaGuardada', 'true');
+      this.metaGuardada = true;
+      this.router.navigate(['/seguimiento']);
+    } else {
+      this.metaGuardada = true;
+    }
   }
 
   toggleTheme() {

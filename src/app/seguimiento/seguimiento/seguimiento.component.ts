@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ConsumoAguaService } from '../../servicios/consumo-agua.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seguimiento',
@@ -10,11 +11,21 @@ import { ConsumoAguaService } from '../../servicios/consumo-agua.service';
 export class SeguimientoComponent {
   cantidad: number | null = null;
 
-  constructor(private consumoService: ConsumoAguaService) { }
+  constructor(
+    private consumoService: ConsumoAguaService,
+    private router: Router
+  ) { }
 
   registrar() {
     if (this.cantidad !== null && this.cantidad > 0) {
       this.consumoService.registrarConsumo(this.cantidad);
+
+      // Solo redirige la primera vez
+      if (!localStorage.getItem('primerConsumo')) {
+        localStorage.setItem('primerConsumo', 'true');
+        this.router.navigate(['/tabla-resumen']);
+      }
+
       this.cantidad = null;
     }
   }
@@ -25,7 +36,6 @@ export class SeguimientoComponent {
   }
 
   get tipoMeta() {
-    // Puedes guardar el tipo de meta en el servicio si lo deseas, aquí lo obtengo del localStorage por simplicidad
     return localStorage.getItem('tipoMeta') || 'diaria';
   }
 
