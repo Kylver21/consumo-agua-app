@@ -1,0 +1,111 @@
+/* Importa la fuente Poppins de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+/* NAVBAR */
+nav {
+  background: #007bff;
+  padding: 12px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+nav ul li {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+nav ul li:not(:last-child) {
+  flex: 1 1 auto;
+  justify-content: center;
+}
+nav ul li:last-child {
+  flex: 0 0 auto;
+  margin-left: auto;
+  margin-right: 32px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+  font-size: 1.08rem;
+  letter-spacing: 0.5px;
+}
+nav ul li a.active,
+nav ul li a:hover {
+  background: #0056b3;
+  color: #ffd700;
+}
+hr {
+  margin: 0;
+}
+
+/* Toggle Switch Moderno */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 28px;
+  vertical-align: middle;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #e0e0e0;
+  border-radius: 34px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 1.2rem;
+}
+.slider .icon {
+  pointer-events: none;
+}
+.switch input:checked + .slider {
+  background-color: #23272b;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+  background: #181c1f;
+}
+
+/* Responsive: menú en columna y toggle centrado */
+@media (max-width: 700px) {
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+}

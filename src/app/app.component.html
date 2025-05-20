@@ -1,19 +1,2 @@
-<nav>
-  <ul>
-    <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
-    <li><a routerLink="/seguimiento" routerLinkActive="active">Seguimiento</a></li>
-    <li><a routerLink="/tabla-resumen" routerLinkActive="active">Resumen</a></li>
-    <li><a routerLink="/acerca-de" routerLinkActive="active">Acerca de</a></li>
-    <li>
-      <label class="switch">
-        <input type="checkbox" [checked]="darkMode" (change)="toggleTheme()" aria-label="Cambiar tema">
-        <span class="slider">
-          <span class="icon" *ngIf="!darkMode">🌞</span>
-          <span class="icon" *ngIf="darkMode">🌙</span>
-        </span>
-      </label>
-    </li>
-  </ul>
-</nav>
-<hr>
-<router-outlet />
+<app-nav [darkMode]="darkMode" (toggleTheme)="toggleTheme()"></app-nav>
+<router-outlet></router-outlet>
