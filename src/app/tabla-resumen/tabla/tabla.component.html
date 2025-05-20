@@ -1,0 +1,23 @@
+<h2>Resumen de avance</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Consumo (L)</th>
+      <th>Meta (L)</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of consumos; let i = index">
+      <td>{{ c.fecha }}</td>
+      <td>{{ c.hora }}</td>
+      <td>{{ c.cantidad | number:'1.2-2' }}</td>
+      <td>{{ meta | number:'1.2-2' }}</td>
+      <td [ngClass]="getEstadoClase(i)">
+        {{ getEstado(i) }}
+      </td>
+    </tr>
+  </tbody>
+</table>

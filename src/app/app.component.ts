@@ -1,11 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: false,
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'consumo-agua-app';
+  darkMode = false;
+
+  constructor(private renderer: Renderer2) {
+    this.darkMode = localStorage.getItem('darkMode') === 'true';
+    this.setTheme();
+  }
+
+  toggleTheme() {
+    this.darkMode = !this.darkMode;
+    localStorage.setItem('darkMode', this.darkMode ? 'true' : 'false');
+    this.setTheme();
+  }
+
+  setTheme() {
+    if (this.darkMode) {
+      this.renderer.addClass(document.body, 'dark-theme');
+    } else {
+      this.renderer.removeClass(document.body, 'dark-theme');
+    }
+  }
 }

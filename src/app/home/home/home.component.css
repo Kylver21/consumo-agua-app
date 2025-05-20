@@ -1,0 +1,75 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+.home-title {
+  color: #007bff;
+  font-size: 2.2rem;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+.home-subtitle {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.home-desc {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 1em;
+  font-family: inherit;
+  text-align: justify;
+}
+.home-list {
+  color: #ffffff;
+  max-width: 600px;
+  margin-bottom: 2em;
+}
+.home-list li {
+  margin-bottom: 0.5em;
+}
+.home-card {
+  background: #f8f9fa;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  width: 100%;
+  max-width: 420px;
+}
+.home-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-form label {
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.home-form input[type="range"] {
+  width: 90%;
+  accent-color: #007bff;
+  margin-bottom: 18px;
+}
+.home-form button {
+  padding: 10px 28px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.home-form button:disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+}
+.home-meta-guardada {
+  margin-top: 18px;
+  color: #28a745;
+  text-align: center;
+}

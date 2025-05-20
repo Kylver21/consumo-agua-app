@@ -1,0 +1,37 @@
+<div class="seguimiento-container">
+  <h2>Seguimiento de consumo de agua</h2>
+  <div class="seguimiento-card">
+    <p>
+      Meta {{ tipoMeta }}: <span class="meta">{{ meta }} litros</span>
+    </p>
+    <p>
+      Consumo acumulado {{ tipoMeta === 'diaria' ? 'hoy' : 'esta semana' }}:
+      <span class="acumulado">{{ acumulado }} litros</span>
+    </p>
+    <p *ngIf="restante > 0" class="restante">
+      Te faltan <span>{{ restante }}</span> litros para cumplir tu meta.
+    </p>
+    <p *ngIf="restante <= 0" class="cumplido">
+      ¡Meta {{ tipoMeta }} cumplida!
+    </p>
+    <form (ngSubmit)="registrar()" class="seguimiento-form">
+      <label for="cantidad">
+        Cantidad consumida (litros):
+      </label>
+      <input
+        type="number"
+        id="cantidad"
+        [(ngModel)]="cantidad"
+        name="cantidad"
+        min="0"
+        step="0.1"
+        required
+        placeholder="Ej: 0.25"
+      />
+      <button type="submit"
+        [disabled]="restante <= 0 || cantidad === null || cantidad <= 0">
+        Registrar consumo
+      </button>
+    </form>
+  </div>
+</div>
