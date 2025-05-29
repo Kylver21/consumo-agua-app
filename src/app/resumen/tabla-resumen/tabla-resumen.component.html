@@ -1,0 +1,31 @@
+<div class="main-content">
+  <div class="card card-main mx-auto" style="max-width: 600px;">
+    <div class="card-header">
+      <i class="fa fa-table"></i> Resumen de Consumo de Agua
+    </div>
+    <div class="card-body">
+      <p><strong>Meta diaria:</strong> {{ meta }} litros</p>
+      <p><strong>Total consumido:</strong> {{ total | number:'1.2-2' }} litros</p>
+      <table class="table table-bordered table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Cantidad (litros)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of consumos">
+            <td>{{ c.fecha | date:'short' }}</td>
+            <td>{{ c.cantidad | number:'1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="total >= meta" class="alert alert-success text-center mt-3">
+        ¡Felicidades! Has alcanzado tu meta diaria.
+      </div>
+      <div *ngIf="total < meta" class="alert alert-info text-center mt-3">
+        ¡Sigue adelante para alcanzar tu meta!
+      </div>
+    </div>
+  </div>
+</div>

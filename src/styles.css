@@ -1,1 +1,126 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Estilos globales adaptados para apps modernas con navbar y múltiples componentes */
+
+/* Fuente y fondo general */
+body {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background-color: #e3f2fd; /* Azul claro, adaptable a apps de agua o salud */
+  color: #222;
+  margin: 0;
+  padding-top: 70px; /* Espacio para navbar fija */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar adaptable */
+.navbar-main, .navbar-utp {
+  background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%);
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}
+
+.navbar-main .navbar-brand,
+.navbar-main .nav-link,
+.navbar-utp .navbar-brand,
+.navbar-utp .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-main .nav-link.active,
+.navbar-main .nav-link:hover,
+.navbar-utp .nav-link.active,
+.navbar-utp .nav-link:hover {
+  color: #81d4fa !important;
+  text-shadow: 0 1px 2px rgba(25, 118, 210, 0.15);
+}
+
+.navbar-main .navbar-brand i,
+.navbar-utp .navbar-brand i {
+  margin-right: 8px;
+}
+
+/* Botones principales */
+.btn-main, .btn-utp {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1.2rem;
+  transition: background 0.2s;
+}
+
+.btn-main:hover, .btn-main:focus,
+.btn-utp:hover, .btn-utp:focus {
+  background-color: #1565c0;
+  color: #e3f2fd;
+}
+
+.btn-main:disabled, .btn-utp:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* Tarjetas reutilizables */
+.card-main, .card-utp {
+  border: 1px solid #bbdefb;
+  border-left: 5px solid #1976d2;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);
+  margin-bottom: 1.5rem;
+  background: #fff;
+}
+
+.card-main .card-header, .card-utp .card-header {
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid #1565c0;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.card-main .card-body, .card-utp .card-body {
+  padding: 1.25rem;
+}
+
+/* Formularios */
+.form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.15);
+}
+
+/* Footer adaptable */
+.footer-main {
+  background-color: #1565c0;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+/* Utilidades para listas */
+.list-group-item {
+  background-color: transparent;
+  border-color: #bbdefb;
+}
+
+/* Responsive helpers */
+@media (max-width: 600px) {
+  .card-main, .card-utp {
+    margin: 1rem 0.5rem;
+  }
+  .navbar-main .navbar-brand, .navbar-utp .navbar-brand {
+    font-size: 1rem;
+  }
+}
+
+/* Espaciado para el contenido principal */
+.main-content {
+  flex: 1 0 auto;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
