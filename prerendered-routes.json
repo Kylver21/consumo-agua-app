@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/consumo-agua-app": {},
+    "/consumo-agua-app/meta": {},
+    "/consumo-agua-app/registro": {},
+    "/consumo-agua-app/resumen": {}
+  }
+}
